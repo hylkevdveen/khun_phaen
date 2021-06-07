@@ -24,9 +24,9 @@ class Field:
     _ALL_COORDS = set((i, j) for j in range(5) for i in range(4))
 
     # Template for a new printed field
-    _EMPTY_FIELD = [['|'] + ['-'] * 33 + ['|', '\n']] + \
-                   [['|'] + [' '] * 33 + ['|', '\n'] for _ in range(21)] + \
-                   [['|'] + ['-'] * 33 + ['|', '\n']]
+    _EMPTY_FIELD = [['█'] + ['▀'] * 33 + ['█', '\n']] + \
+                   [['█'] + [' '] * 33 + ['█', '\n'] for _ in range(21)] + \
+                   [['█'] + ['▄'] * 33 + ['█', '\n']]
 
     def __init__(self, file='khun_phaen.txt', goal=None, pieces=None):
         """Initialize the playing field and all its pieces.
@@ -140,8 +140,8 @@ class Field:
         }[height]
 
         for i in range(height):
-            field[origin[0] + i][origin[1]] = f"{colors[color]}|{colors['END']}"          # Left
-            field[origin[0] + i][origin[1] + right] = f"{colors[color]}|{colors['END']}"  # Right
+            field[origin[0] + i][origin[1]] = f"{colors[color]}█{colors['END']}"          # Left
+            field[origin[0] + i][origin[1] + right] = f"{colors[color]}█{colors['END']}"  # Right
 
     @staticmethod
     def draw_top_bottom(field, origin, width, height, color):
@@ -157,8 +157,8 @@ class Field:
         }[width]
 
         for i in range(1, width):
-            field[origin[0]][origin[1] + i] = f"{colors[color]}-{colors['END']}"           # Top
-            field[origin[0] + bottom][origin[1] + i] = f"{colors[color]}-{colors['END']}"  # Bottom
+            field[origin[0]][origin[1] + i] = f"{colors[color]}▀{colors['END']}"           # Top
+            field[origin[0] + bottom][origin[1] + i] = f"{colors[color]}▄{colors['END']}"  # Bottom
 
     @staticmethod
     def draw_x(field, origin, width, height, color):
@@ -173,4 +173,4 @@ class Field:
             2: 3
         }[height]
 
-        field[origin[0] + y_offset][origin[1] + x_offset] = f"{colors[color]}X{colors['END']}"
+        field[origin[0] + y_offset][origin[1] + x_offset] = f"{colors[color]}●{colors['END']}"
