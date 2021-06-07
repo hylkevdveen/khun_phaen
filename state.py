@@ -37,8 +37,8 @@ class State(Field):
         if self._parent is not None:
             self._parent.print_solution(max_depth)
             # Overwrite previous step
-            print('\033[26A', end='\r')
+            print('\033[24A', end='\r')
         # Print each step with a sleep
         print(f"Step {self._depth:>3}/{max_depth}", end="\n\n")
         print(self)
-        time.sleep(0.5)
+        time.sleep(0.4)

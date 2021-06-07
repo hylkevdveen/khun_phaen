@@ -18,7 +18,7 @@ def main(argv):
     else:
         start = State()
 
-    print("Khun Phaen start state:")
+    print("\nKhun Phaen start state:\n")
     print(start)
 
     khun_phaen_solver(start)

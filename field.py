@@ -25,7 +25,7 @@ class Field:
 
     # Template for a new printed field
     _EMPTY_FIELD = [['█'] + ['▀'] * 33 + ['█', '\n']] + \
-                   [['█'] + [' '] * 33 + ['█', '\n'] for _ in range(21)] + \
+                   [['█'] + [' '] * 33 + ['█', '\n'] for _ in range(19)] + \
                    [['█'] + ['▄'] * 33 + ['█', '\n']]
 
     def __init__(self, file='khun_phaen.txt', goal=None, pieces=None):
@@ -83,7 +83,7 @@ class Field:
             # Skip empty line
             f.readline()
             # Iterate over the starting state of the game
-            for i in range(1, 24):
+            for i in range(2, 21):
                 for j, char in enumerate(f.readline()):
                     if char == 'X':
                         # Check height based on X
@@ -117,7 +117,7 @@ class Field:
 
     def draw_piece(self, field, piece):
         """Draw a single piece in the field."""
-        origin = (2 + 4 * piece.y(), 2 + 8 * piece.x())
+        origin = (1 + 4 * piece.y(), 2 + 8 * piece.x())
         width = piece.width()
         height = piece.height()
         color = piece.color()
