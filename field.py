@@ -85,7 +85,7 @@ class Field:
             # Iterate over the starting state of the game
             for i in range(2, 21):
                 for j, char in enumerate(f.readline()):
-                    if char == 'X':
+                    if char == 'O':
                         # Check height based on X
                         if i % 4 == 0:
                             height = 1
@@ -124,7 +124,7 @@ class Field:
 
         self.draw_sides(field, origin, width, height, color)
         self.draw_top_bottom(field, origin, width, height, color)
-        self.draw_x(field, origin, width, height, color)
+        self.draw_circle(field, origin, width, height, color)
 
     @staticmethod
     def draw_sides(field, origin, width, height, color):
@@ -161,7 +161,7 @@ class Field:
             field[origin[0] + bottom][origin[1] + i] = f"{colors[color]}▄{colors['END']}"  # Bottom
 
     @staticmethod
-    def draw_x(field, origin, width, height, color):
+    def draw_circle(field, origin, width, height, color):
         """Draw the X in a single piece."""
         x_offset = {
             1: 3,
