@@ -5,6 +5,7 @@ Date: 23-05-2021
 Description: Solve a Khun Phaen puzzle.
 """
 
+import time
 from fringe import Fringe
 from state import State
 from piece import Piece
@@ -46,6 +47,8 @@ def khun_phaen_solver(puzzle):
     state = puzzle
     seen = {hash(state)}
 
+    start = time.time()
+
     generate_possible_moves(state, queue, seen)
 
     # Keep exploring the puzzle until a solution is found or no solution is possible.
@@ -53,7 +56,8 @@ def khun_phaen_solver(puzzle):
         state = queue.pop()
 
         if state.is_solved():
-            print("Solved!")
+            end = time.time()
+            print(f"Solved in {end - start:.2f} seconds!")
             state.print_solution(state.depth())
             queue.print_stats()
             return
